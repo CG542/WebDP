@@ -1,0 +1,111 @@
+<div ng-controller="dpCtrl">
+
+    <div id="navbar-main">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><i class="fa fa-location-arrow"></i> Web DP</a></div>
+                <!--<div class="navbar-collapse collapse">-->
+            </div>
+        </div>
+    </div>
+
+
+    <div id="webdp" name="webdp">
+        <div class="row white">
+            <div class="col-lg-8 col-lg-offset-2 centered">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li class="active"><a href="#status" data-toggle="tab">
+                        <img class="img-responsive" src="dist/img/monitor_focus.png" align="">
+                        Status
+                    </a></li>
+                    <li class="active"><a href="#deploy" data-toggle="tab">
+                        <img class="img-responsive" src="dist/img/console_focus.png" align="">
+                        Deploy
+                    </a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active " id="status">
+                        <div class="table-responsive">
+                            <table class="table" width="100%">
+                                <thead class="success">
+                                <tr>
+                                    <th>Info</th>
+                                    <th>DP Name</th>
+                                    <th>Time</th>
+                                </tr>
+                                </thead>
+                                <tbody align="left">
+                                <tr class="success">
+                                    <td>John</td>
+                                    <td>Doe</td>
+                                    <td>john@example.com</td>
+                                </tr>
+                                <tr class="danger">
+                                    <td>Mary</td>
+                                    <td>Moe</td>
+                                    <td>mary@example.com</td>
+                                </tr>
+                                <tr class="info">
+                                    <td>July</td>
+                                    <td>Dooley</td>
+                                    <td>july@example.com</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="deploy">
+                        <div class="col-md-16">
+                            <form id="dpform" method="post" class="form" role="form">
+                                <table class="table" width="100%">
+                                    <tbody align="center">
+                                    <tr>
+                                        <td>DP</td>
+                                        <td><select class="form-control">
+                                            <option value="one">One</option>
+                                            <option value="two">Two</option>
+                                            <option value="three">Three</option>
+                                            <option value="four">Four</option>
+                                            <option value="five">Five</option>
+                                        </select>
+                                        </td>
+
+                                    </tr>
+
+                                    <tr>
+                                        <td>Profile</td>
+                                        <td><select class="form-control">
+                                            <option value="one">One</option>
+                                            <option value="two">Two</option>
+                                            <option value="three">Three</option>
+                                            <option value="four">Four</option>
+                                            <option value="five">Five</option>
+                                        </select>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td>
+                                        </td>
+                                        <td>
+                                        </td>
+                                    </tr>
+
+                                    </tbody>
+                                </table>
+                                <button class="btn btn btn-lg" type="submit">Deploy</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
