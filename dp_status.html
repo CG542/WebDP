@@ -1,4 +1,4 @@
-<div ng-controller="dpCtrl">
+<div ng-controller="dpStatusCtrl">
 
     <div id="navbar-main">
         <div class="navbar navbar-default navbar-fixed-top">
@@ -17,11 +17,11 @@
         <div class="row white">
             <div class="col-lg-8 col-lg-offset-2 centered">
                 <ul id="myTab" class="nav nav-tabs">
-                    <li class="active"><a href="#status" data-toggle="tab">
+                    <li class="active show"><a href="#status" data-toggle="tab">
                         <img class="img-responsive" src="dist/img/monitor_focus.png" align="">
                         Status
                     </a></li>
-                    <li class="active"><a href="#deploy" data-toggle="tab">
+                    <li><a href="#deploy" data-toggle="tab">
                         <img class="img-responsive" src="dist/img/console_focus.png" align="">
                         Deploy
                     </a></li>
@@ -55,49 +55,6 @@
                                 </tr>
                                 </tbody>
                             </table>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="deploy">
-                        <div class="col-md-16">
-                            <form id="dpform" method="post" class="form" role="form">
-                                <table class="table" width="100%">
-                                    <tbody align="center">
-                                    <tr>
-                                        <td>DP</td>
-                                        <td><select class="form-control">
-                                            <option value="one">One</option>
-                                            <option value="two">Two</option>
-                                            <option value="three">Three</option>
-                                            <option value="four">Four</option>
-                                            <option value="five">Five</option>
-                                        </select>
-                                        </td>
-
-                                    </tr>
-
-                                    <tr>
-                                        <td>Profile</td>
-                                        <td><select class="form-control">
-                                            <option value="one">One</option>
-                                            <option value="two">Two</option>
-                                            <option value="three">Three</option>
-                                            <option value="four">Four</option>
-                                            <option value="five">Five</option>
-                                        </select>
-                                        </td>
-                                    </tr>
-
-                                    <tr>
-                                        <td>
-                                        </td>
-                                        <td>
-                                        </td>
-                                    </tr>
-
-                                    </tbody>
-                                </table>
-                                <button class="btn btn btn-lg" type="submit">Deploy</button>
-                            </form>
                         </div>
                     </div>
                 </div>

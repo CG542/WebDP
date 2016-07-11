@@ -1,4 +1,4 @@
-<div ng-controller="dpCtrl">
+<div ng-controller="dpDeployCtrl">
 
     <div id="navbar-main">
         <div class="navbar navbar-default navbar-fixed-top">
@@ -17,47 +17,17 @@
         <div class="row white">
             <div class="col-lg-8 col-lg-offset-2 centered">
                 <ul id="myTab" class="nav nav-tabs">
-                    <li class="active"><a href="#status" data-toggle="tab">
+                    <li><a href="#status" data-toggle="tab">
                         <img class="img-responsive" src="dist/img/monitor_focus.png" align="">
                         Status
                     </a></li>
-                    <li class="active"><a href="#deploy" data-toggle="tab">
+                    <li class="active show"><a href="#deploy" data-toggle="tab">
                         <img class="img-responsive" src="dist/img/console_focus.png" align="">
                         Deploy
                     </a></li>
                 </ul>
                 <div id="myTabContent" class="tab-content">
-                    <div class="tab-pane fade in active " id="status">
-                        <div class="table-responsive">
-                            <table class="table" width="100%">
-                                <thead class="success">
-                                <tr>
-                                    <th>Info</th>
-                                    <th>DP Name</th>
-                                    <th>Time</th>
-                                </tr>
-                                </thead>
-                                <tbody align="left">
-                                <tr class="success">
-                                    <td>John</td>
-                                    <td>Doe</td>
-                                    <td>john@example.com</td>
-                                </tr>
-                                <tr class="danger">
-                                    <td>Mary</td>
-                                    <td>Moe</td>
-                                    <td>mary@example.com</td>
-                                </tr>
-                                <tr class="info">
-                                    <td>July</td>
-                                    <td>Dooley</td>
-                                    <td>july@example.com</td>
-                                </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <div class="tab-pane fade" id="deploy">
+                    <div class="tab-pane fade in active ">
                         <div class="col-md-16">
                             <form id="dpform" method="post" class="form" role="form">
                                 <table class="table" width="100%">
