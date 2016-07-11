@@ -22,11 +22,36 @@ app.config(function ($routeProvider) {
 
 var baseUrl = "http://yxzhm.com/api/TokenDP/";
 var token="";
-
-app.controller('dpStatusCtrl', function ($scope, $location) {
+var lastStatusQueryTime='2016-06-23 19:55:43';
+app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
     if(token.length==0){
         $location.path('/');
     }
+
+    var loadData = $interval(function(){
+        //$interval.cancel(loadData);
+        $http({
+            method: 'GET',
+            url: baseUrl+'QueryDPStatus?'+'token='+token+'&time='+lastStatusQueryTime,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            transformResponse: [function (data) {
+                return data;
+            }]
+        }).success(function(data, status, header, config) {
+            console.log(data);
+
+        }).error(function(data, status, header, config){
+            console.log(header());
+            console.log(config);
+        })
+        //$interval.start(loadData);
+    },5000);
+
+    $scope.$on('$destroy',function(){
+        $interval.cancel(loadData);
+    })
 
 });
 app.controller('dpDeployCtrl', function ($scope, $location) {
