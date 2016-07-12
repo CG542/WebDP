@@ -35,7 +35,7 @@ app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
 
     var loadData = function(){
         var currentTime = new Date().Format("yyyy-MM-dd hh:mm:ss");
-
+        console.log(currentTime);
         $http({
             method: 'GET',
             url: baseUrl+'QueryDPStatus?'+'token='+token+'&time='+lastStatusQueryTime,
@@ -47,15 +47,17 @@ app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
             }]
         }).success(function(data, status, header, config) {
             var statusJson = angular.fromJson(data);
-            for(var i=0;i<statusJson.dpStatusEntity.length;i++){
+            if(statusJson!=null && statusJson.dpStatusEntity!=null) {
+                for (var i = 0; i < statusJson.dpStatusEntity.length; i++) {
 
-                $scope.statuslist.splice(0,0,
-                    {
-                        'name':statusJson.dpStatusEntity[i].DPName,
-                        'time': statusJson.dpStatusEntity[i].reporttime,
-                        'info': statusJson.dpStatusEntity[i].status
-                    }
-                ) ;
+                    $scope.statuslist.splice(0, 0,
+                        {
+                            'name': statusJson.dpStatusEntity[i].DPName,
+                            'time': statusJson.dpStatusEntity[i].reporttime,
+                            'info': statusJson.dpStatusEntity[i].status
+                        }
+                    );
+                }
             }
             lastStatusQueryTime=currentTime;
             //$scope.statuslist.add
@@ -93,8 +95,10 @@ app.controller('dpDeployCtrl', function ($scope, $location,$http) {
         }]
     }).success(function(data, status, header, config) {
         var dpJson = angular.fromJson(data);
-        for(var i=0;i<dpJson.DP.length;i++) {
-            $scope.dplist.push({'dpname':dpJson.DP[i].name}) ;
+        if(dpJson!=null && dpJson.DP!=null) {
+            for (var i = 0; i < dpJson.DP.length; i++) {
+                $scope.dplist.push({'dpname': dpJson.DP[i].name});
+            }
         }
 
     }).error(function(data, status, header, config){
@@ -113,8 +117,10 @@ app.controller('dpDeployCtrl', function ($scope, $location,$http) {
         }]
     }).success(function(data, status, header, config) {
         var profileJson = angular.fromJson(data);
-        for(var i=0;i<profileJson.settingEntity.length;i++) {
-            $scope.profilelist.push({'profilename':profileJson.settingEntity[i].profilename}) ;
+        if(profileJson!=null && statusJson.settingEntity!=null) {
+            for (var i = 0; i < profileJson.settingEntity.length; i++) {
+                $scope.profilelist.push({'profilename': profileJson.settingEntity[i].profilename});
+            }
         }
 
     }).error(function(data, status, header, config){
