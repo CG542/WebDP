@@ -35,8 +35,10 @@ app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
 
     var loadData = function(){
         var currentTime = new Date().Format("yyyy-MM-dd hh:mm:ss");
+
         console.log('currentTime:        '+currentTime);
         console.log('lastStatusQueryTime:'+lastStatusQueryTime);
+
         $http({
             method: 'GET',
             url: baseUrl+'QueryDPStatus?'+'token='+token+'&time='+lastStatusQueryTime,
@@ -69,6 +71,7 @@ app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
             console.log(header());
             console.log(config);
         });
+        $scope.logContext='Refresh Time: '+currentTime+' Total Records:'+$scope.statuslist.length;
     }
     loadData();
     $interval(loadData,5000);
