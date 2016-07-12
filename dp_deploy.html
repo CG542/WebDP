@@ -34,12 +34,8 @@
                                     <tbody align="center">
                                     <tr>
                                         <td>DP</td>
-                                        <td><select class="form-control">
-                                            <option value="one">One</option>
-                                            <option value="two">Two</option>
-                                            <option value="three">Three</option>
-                                            <option value="four">Four</option>
-                                            <option value="five">Five</option>
+                                        <td><select class="form-control" ng-model="seldp">
+                                            <option  ng-repeat="dp in dplist" value="dp.dpname">{{dp.dpname}}</option>
                                         </select>
                                         </td>
 
@@ -47,12 +43,8 @@
 
                                     <tr>
                                         <td>Profile</td>
-                                        <td><select class="form-control">
-                                            <option value="one">One</option>
-                                            <option value="two">Two</option>
-                                            <option value="three">Three</option>
-                                            <option value="four">Four</option>
-                                            <option value="five">Five</option>
+                                        <td><select class="form-control" ng-model="selprofile">
+                                            <option  ng-repeat="profile in profilelist" value="profile.profilename">{{profile.profilename}}</option>
                                         </select>
                                         </td>
                                     </tr>
@@ -66,7 +58,7 @@
 
                                     </tbody>
                                 </table>
-                                <button class="btn btn btn-lg" type="submit">Deploy</button>
+                                <button class="btn btn btn-lg" type="submit" ng-click="deploy()">Deploy</button>
                             </form>
                         </div>
                     </div>

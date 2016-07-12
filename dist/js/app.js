@@ -74,11 +74,74 @@ app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
 });
 
 
-app.controller('dpDeployCtrl', function ($scope, $location) {
+app.controller('dpDeployCtrl', function ($scope, $location,$http) {
     if(token.length==0){
         $location.path('/');
     }
+    $scope.dplist=[];
+    $scope.profilelist=[];
 
+    $http({
+        method: 'GET',
+        url: baseUrl+'GetAllDPNames?'+'token='+token,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        transformResponse: [function (data) {
+            return data;
+        }]
+    }).success(function(data, status, header, config) {
+        var dpJson = angular.fromJson(data);
+        for(var i=0;i<dpJson.DP.length;i++) {
+            $scope.dplist.push({'dpname':dpJson.DP[i].name}) ;
+        }
+
+    }).error(function(data, status, header, config){
+        console.log(header());
+        console.log(config);
+    })
+
+    $http({
+        method: 'GET',
+        url: baseUrl+'GetAllSettings?'+'token='+token,
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        transformResponse: [function (data) {
+            return data;
+        }]
+    }).success(function(data, status, header, config) {
+        var profileJson = angular.fromJson(data);
+        for(var i=0;i<profileJson.settingEntity.length;i++) {
+            $scope.profilelist.push({'profilename':profileJson.settingEntity[i].profilename}) ;
+        }
+
+    }).error(function(data, status, header, config){
+        console.log(header());
+        console.log(config);
+    })
+
+    $scope.deploy=function(){
+        var selectedDP = $scope.seldp;
+        var selectedProfile = $scope.selprofile;
+
+        $http({
+            method: 'POST',
+            url: baseUrl+'SetDPConfig',
+            data: 'token='+token+'&dpname='+selectedDP+'&profilename='+selectedProfile,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            transformResponse: [function (data) {
+                return data;
+            }]
+        }).success(function(data, status, header, config) {
+            console.log(data);
+        }).error(function(data, status, header, config){
+            console.log(header());
+            console.log(config);
+        })
+    }
 });
 
 
@@ -87,7 +150,7 @@ app.controller('loginCtrl', function ($scope, $location,$http) {
         $http({
             method: 'POST',
             url: baseUrl+'Login',
-            data: 'loginname=cps&password=cps',
+            data: 'loginname='+$scope.loginname+'&password='+$scope.psw,
             headers: {
                 'Content-Type': 'application/json'
             },
