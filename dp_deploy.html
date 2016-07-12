@@ -35,7 +35,7 @@
                                     <tr>
                                         <td>DP</td>
                                         <td><select class="form-control" ng-model="seldp">
-                                            <option  ng-repeat="dp in dplist" value="dp.dpname">{{dp.dpname}}</option>
+                                            <option  data-ng-repeat="dp in dplist" value="{{dp.dpname}}" ng-selected="seldp==dp.dpname">{{dp.dpname}}</option>
                                         </select>
                                         </td>
 
@@ -44,7 +44,7 @@
                                     <tr>
                                         <td>Profile</td>
                                         <td><select class="form-control" ng-model="selprofile">
-                                            <option  ng-repeat="profile in profilelist" value="profile.profilename">{{profile.profilename}}</option>
+                                            <option  data-ng-repeat="profile in profilelist" value="{{profile.profilename}}" ng-selected="selprofile==profile.profilename">{{profile.profilename}}</option>
                                         </select>
                                         </td>
                                     </tr>

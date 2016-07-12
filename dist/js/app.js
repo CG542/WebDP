@@ -22,7 +22,7 @@ app.config(function ($routeProvider) {
 
 var baseUrl = "http://yxzhm.com/api/TokenDP/";
 var token="";
-var lastStatusQueryTime='2016-06-23 19:55:43';
+
 
 
 app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
@@ -31,9 +31,9 @@ app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
     }
 
     $scope.statuslist=[];
+    var lastStatusQueryTime='2016-06-23 19:55:43';
 
-    var loadData = $interval(function(){
-        //$interval.cancel(loadData);
+    var loadData = function(){
         var currentTime = new Date().Format("yyyy-MM-dd hh:mm:ss");
 
         $http({
@@ -51,9 +51,9 @@ app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
 
                 $scope.statuslist.splice(0,0,
                     {
-                    'name':statusJson.dpStatusEntity[i].DPName,
-                    'time': statusJson.dpStatusEntity[i].reporttime,
-                    'info': statusJson.dpStatusEntity[i].status
+                        'name':statusJson.dpStatusEntity[i].DPName,
+                        'time': statusJson.dpStatusEntity[i].reporttime,
+                        'info': statusJson.dpStatusEntity[i].status
                     }
                 ) ;
             }
@@ -63,9 +63,10 @@ app.controller('dpStatusCtrl', function ($scope, $location,$interval,$http) {
         }).error(function(data, status, header, config){
             console.log(header());
             console.log(config);
-        })
-        //$interval.start(loadData);
-    },5000);
+        });
+    }
+    loadData();
+    $interval(loadData,5000);
 
     $scope.$on('$destroy',function(){
         $interval.cancel(loadData);
