@@ -74,7 +74,7 @@ app.controller('dpStatusCtrl', function ($scope, $location, $interval, $http) {
         });
         $scope.logContext = 'Refresh Time: ' + currentTime + ' Total Records:' + $scope.statuslist.length;
     }
-    //loadData();
+    loadData();
     var timer = $interval(loadData, 5000);
 
     $scope.$on('$destroy', function () {
