@@ -74,6 +74,14 @@ body {
 	margin-right: 0px;
 	margin-left: -15px;
 }
+.setting-td{
+	width: 200px;
+}
+.setting-title{
+	font-weight:bold;
+	align:right;
+	margin-right: 50px;
+}
 .modal-header {
 	background: #34b1c4;
 }

@@ -1,0 +1,151 @@
+<div ng-controller="dpSettingCtrl">
+
+    <div id="navbar-main">
+        <div class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand"><i class="fa fa-location-arrow"></i> Web DP</a></div>
+                <!--<div class="navbar-collapse collapse">-->
+            </div>
+        </div>
+    </div>
+
+    <div id="webdp" name="webdp">
+        <div class="row white">
+            <div class="col-lg-8 col-lg-offset-2 centered">
+                <ul id="myTab" class="nav nav-tabs">
+                    <li><a href="#status" data-toggle="tab">
+                        <img class="img-responsive" src="dist/img/monitor_nonfocus.png" align="">
+                        Status
+                    </a></li>
+                    <li><a href="#deploy" data-toggle="tab">
+                        <img class="img-responsive" src="dist/img/console_nonfocus.png" align="">
+                        Deploy
+                    </a></li>
+                    <li class="active show"><a href="#setting" data-toggle="tab">
+                        <img class="img-responsive" src="dist/img/preferences_focus.png" align="">
+                        Setting
+                    </a></li>
+                </ul>
+                <div id="myTabContent" class="tab-content">
+                    <div class="tab-pane fade in active ">
+                        <div class="col-md-16">
+                            <form id="dpform" method="post" class="form" role="form">
+                                <table class="table" width="100%">
+                                    <tbody align="center">
+                                    <tr>
+                                        <td><h4 class="setting-title">Server</h4></td>
+                                        <td>
+                                            <table align="left">
+                                                <tr>
+                                                    <td class="setting-td">Address</td>
+                                                    <td>
+                                                        <div class="col-xs-6 col-md-12 form-group">
+                                                            <input class="form-control" type="text" ng-model="addr"/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="setting-td">Port</td>
+                                                    <td>
+                                                        <div class="col-xs-6 col-md-12 form-group">
+                                                            <input class="form-control" type="text" ng-model="port"/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="setting-td">Auth Method</td>
+                                                    <td>
+                                                        <div class="col-xs-6 col-md-12 form-group">
+                                                            <select class="form-control" ng-model="auth">
+                                                                <option value="0" >Certificate</option>
+                                                                <option value="1">Windows Credentials</option>
+                                                            </select>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4 class="setting-title">Comm Method</h4></td>
+                                        <td>
+                                            <table align="left">
+                                                <tr>
+                                                    <td class="setting-td">USB</td>
+                                                    <td>
+                                                        <div class="col-xs-6 col-md-12 form-group">
+                                                            <input type="checkbox" ng-model="usb">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="setting-td">Wireless</td>
+                                                    <td>
+                                                        <div class="col-xs-6 col-md-12 form-group">
+                                                            <input  type="checkbox" ng-model="lan">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <td class="setting-td">Over the air</td>
+                                                    <td>
+                                                        <div class="col-xs-6 col-md-12 form-group">
+                                                            <input  type="checkbox" ng-model="otap">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><h4 class="setting-title">Job Setting</h4></td>
+                                        <td>
+                                            <table align="left" >
+                                                <tr>
+                                                    <td class="setting-td">Auto Process Jobs</td>
+                                                    <td>
+                                                        <div class="col-xs-6 col-md-12 form-group">
+                                                            <input  type="checkbox" ng-model="autojob">
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+
+                                    <tr>
+                                        <td><h4 class="setting-title">Setting Profile</h4></td>
+                                        <td>
+                                            <table align="left" >
+                                                <tr>
+                                                    <td class="setting-td">Profile Name</td>
+                                                    <td>
+                                                        <div class="col-xs-6 col-md-12 form-group">
+                                                            <input class="form-control" type="text" ng-model="profilename"/>
+                                                        </div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                                <button class="btn btn btn-lg" type="submit" ng-click="save()">Save</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
