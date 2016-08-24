@@ -37,6 +37,7 @@
                             <table class="table" width="100%">
                                 <thead class="success">
                                 <tr>
+                                    <th>ID</th>
                                     <th>Time</th>
                                     <th>DP Name</th>
                                     <th>Info</th>
@@ -44,6 +45,7 @@
                                 </thead>
                                 <tbody align="left">
                                 <tr ng-repeat="s in statuslist" ng-class="$index %2 == 0?'success':'danger'">
+                                    <td>{{s.id}}</td>
                                     <td>{{s.time}}</td>
                                     <td>{{s.name}}</td>
                                     <td>{{s.info}}</td>

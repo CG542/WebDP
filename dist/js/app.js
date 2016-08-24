@@ -57,6 +57,7 @@ app.controller('dpStatusCtrl', function ($scope, $location, $interval, $http) {
 
                     $scope.statuslist.splice(0, 0,
                         {
+                            'id':   i+1,
                             'name': statusJson.dpStatusEntity[i].DPName,
                             'time': statusJson.dpStatusEntity[i].reporttime,
                             'info': statusJson.dpStatusEntity[i].status
